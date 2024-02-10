@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Guidance";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    While most will be able to enjoy the SoulsLike experience solo, for less experienced players <br />
+    it may be helpful to receive guidance from another person. <br />
+    If you think you would benefit from such assistance, <br />
+    you can hire me at an hourly rate to help you in any way you like.</p>
+
+<h3>Price Calculator</h3>
+<label for="hours">Hours: </label>
+<input id="hours" type="number" min="0" max="999">
+<br />
+<label for="rate">Rate: </label>
+<input id="rate" type="text" value="$10/hr" readonly>
+<br />
+<label for="result">Total: </label>
+<input id="result" type="text" readonly>
+<button id="calculateBtn">Calculate</button>
+
+
+<script>
+    $(document).ready(function () 
+    {
+        function calculate() 
+        {
+            let hoursValue = $('#hours').val(); // Get the value from the input box
+            if (hoursValue > 0 && hoursValue % 1 === 0) 
+            {
+                let result = hoursValue * 10; // Multiply by 10
+                console.log(hoursValue)
+                console.log(result)
+                $('#result').prop("value", '$' + result); // Output the result with a dollar sign
+            }
+        }
+
+        $('#calculateBtn').click(function () 
+        {
+            calculate();
+        });
+    });
+</script>
